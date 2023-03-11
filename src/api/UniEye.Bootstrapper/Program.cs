@@ -1,5 +1,9 @@
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 using UniEye.Modules.Students.Api;
+using UniEye.Modules.Users.Api;
+using UniEye.Modules.Users.App;
+using UniEye.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +17,9 @@ app.Run();
 void ConfigureServices(IServiceCollection services, IConfiguration configuration)
 {
     services.AddControllers();
-    services.AddStudentsModule(configuration);
+    services.AddSharedModule(GetAssembliesToScan())
+        .AddStudentsModule(configuration)
+        .AddUsersModule();
 
     services.AddSwaggerGen(swagger =>
     {
@@ -38,4 +44,13 @@ void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
     app.UseRouting();
     app.UseEndpoints(endpoints => endpoints.MapControllers());
+}
+
+Assembly[] GetAssembliesToScan()
+{
+    return new[]
+    {
+        typeof(UniEye.Modules.Students.App.IAssemblyMarker).Assembly,
+        typeof(UniEye.Modules.Users.App.IAssebmlyMarker).Assembly
+    };
 }

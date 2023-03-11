@@ -15,19 +15,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Students", "Students", "{99
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{341E12D4-3573-4AAC-BC66-58BA8C9DFD6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniEye.Modules.Students.Api", "UniEye.Modules.Students.Api\UniEye.Modules.Students.Api.csproj", "{02998A05-D099-47DC-815C-FD51B22602F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniEye.Modules.Students.Api", "UniEye.Modules.Students.Api\UniEye.Modules.Students.Api.csproj", "{02998A05-D099-47DC-815C-FD51B22602F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniEye.Modules.Students.App", "UniEye.Modules.Students.App\UniEye.Modules.Students.App.csproj", "{B5AFA0A5-5B27-4191-991B-E4DF912B1237}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniEye.Modules.Students.App", "UniEye.Modules.Students.App\UniEye.Modules.Students.App.csproj", "{B5AFA0A5-5B27-4191-991B-E4DF912B1237}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniEye.Modules.Students.Core", "UniEye.Modules.Students.Core\UniEye.Modules.Students.Core.csproj", "{486F7277-F43F-4040-857A-DC1526D0845E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniEye.Modules.Students.Core", "UniEye.Modules.Students.Core\UniEye.Modules.Students.Core.csproj", "{486F7277-F43F-4040-857A-DC1526D0845E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniEye.Modules.Students.Infrastructure", "UniEye.Modules.Students.Infrastructure\UniEye.Modules.Students.Infrastructure.csproj", "{B67927CC-C412-46B2-8C75-1B5CDA50F0FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniEye.Modules.Students.Infrastructure", "UniEye.Modules.Students.Infrastructure\UniEye.Modules.Students.Infrastructure.csproj", "{B67927CC-C412-46B2-8C75-1B5CDA50F0FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniEye.Shared", "UniEye.Shared\UniEye.Shared.csproj", "{214EB86E-D246-4879-9D10-1BD7A9BD2FC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniEye.Shared", "UniEye.Shared\UniEye.Shared.csproj", "{214EB86E-D246-4879-9D10-1BD7A9BD2FC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniEye.Shared.Domain", "UniEye.Shared.Domain\UniEye.Shared.Domain.csproj", "{B3BB5DCD-CDE4-4334-BAB3-EF03615B19AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniEye.Shared.Domain", "UniEye.Shared.Domain\UniEye.Shared.Domain.csproj", "{B3BB5DCD-CDE4-4334-BAB3-EF03615B19AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniEye.Shared.App", "UniEye.Shared.App\UniEye.Shared.App.csproj", "{768D970F-4710-4FC3-B0CF-C1069B1B7FA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniEye.Shared.App", "UniEye.Shared.App\UniEye.Shared.App.csproj", "{768D970F-4710-4FC3-B0CF-C1069B1B7FA7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniEye.Modules.Users.Shared", "UniEye.Modules.Users.Shared\UniEye.Modules.Users.Shared.csproj", "{69768B72-8B53-486B-A7B8-61E135F1778E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniEye.Modules.Users.App", "UniEye.Modules.Users.App\UniEye.Modules.Users.App.csproj", "{8A32E917-8820-4900-B575-CFA9B84E5C8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniEye.Modules.Users.Api", "UniEye.Modules.Users.Api\UniEye.Modules.Users.Api.csproj", "{F3C5EED3-FF30-498A-8618-2102589D4358}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +73,18 @@ Global
 		{768D970F-4710-4FC3-B0CF-C1069B1B7FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{768D970F-4710-4FC3-B0CF-C1069B1B7FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{768D970F-4710-4FC3-B0CF-C1069B1B7FA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69768B72-8B53-486B-A7B8-61E135F1778E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69768B72-8B53-486B-A7B8-61E135F1778E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69768B72-8B53-486B-A7B8-61E135F1778E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69768B72-8B53-486B-A7B8-61E135F1778E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A32E917-8820-4900-B575-CFA9B84E5C8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A32E917-8820-4900-B575-CFA9B84E5C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A32E917-8820-4900-B575-CFA9B84E5C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A32E917-8820-4900-B575-CFA9B84E5C8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3C5EED3-FF30-498A-8618-2102589D4358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3C5EED3-FF30-498A-8618-2102589D4358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3C5EED3-FF30-498A-8618-2102589D4358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3C5EED3-FF30-498A-8618-2102589D4358}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +100,9 @@ Global
 		{214EB86E-D246-4879-9D10-1BD7A9BD2FC3} = {E5A37726-DE62-42F0-93F9-87CAA2CE7916}
 		{B3BB5DCD-CDE4-4334-BAB3-EF03615B19AD} = {E5A37726-DE62-42F0-93F9-87CAA2CE7916}
 		{768D970F-4710-4FC3-B0CF-C1069B1B7FA7} = {E5A37726-DE62-42F0-93F9-87CAA2CE7916}
+		{69768B72-8B53-486B-A7B8-61E135F1778E} = {341E12D4-3573-4AAC-BC66-58BA8C9DFD6A}
+		{8A32E917-8820-4900-B575-CFA9B84E5C8B} = {341E12D4-3573-4AAC-BC66-58BA8C9DFD6A}
+		{F3C5EED3-FF30-498A-8618-2102589D4358} = {341E12D4-3573-4AAC-BC66-58BA8C9DFD6A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88BFB818-7507-48B3-B1AC-DA42E83DE05A}

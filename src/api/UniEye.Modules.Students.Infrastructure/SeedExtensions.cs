@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UniEye.Modules.Students.Core.Models;
+using UniEye.Shared.Domain;
 
 namespace UniEye.Modules.Students.Infrastructure
 {
@@ -7,10 +8,8 @@ namespace UniEye.Modules.Students.Infrastructure
     {
         public static void Seed(this ModelBuilder builder)
         {
-            builder.Entity<StudyForm>().HasData(
-                StudyForm.FullTime,
-                StudyForm.External
-            );
+            builder.Entity<StudyForm>().HasData(Enumeration.GetAll<StudyForm>());
+            builder.Entity<PaymentTerm>().HasData(Enumeration.GetAll<PaymentTerm>());
 
             builder.Entity<Group>().HasData(
                 new Group() { Id = 1, Name = "ПМІ-11", StudyFormId = StudyForm.FullTime },

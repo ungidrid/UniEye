@@ -10,10 +10,6 @@ namespace UniEye.Modules.Students.Api
         public static IServiceCollection AddStudentsModule(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddInfrastructure(configuration);
-
-            var appAssembly = typeof(IAssemblyMarker).Assembly;
-            services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(appAssembly));
-
             return services;
         }
     }

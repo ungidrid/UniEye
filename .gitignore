@@ -20,3 +20,10 @@
 /src/api/UniEye.Shared.App/obj
 /src/api/UniEye.Shared.Domain/obj
 /src/api/UniEye.Shared.Domain/bin/Debug/net7.0
+/src/api/UniEye.Modules.Students.Shared/obj
+/src/api/UniEye.Modules.Users.Shared/obj
+/src/api/UniEye.Modules.Users.Api/bin/Debug/net7.0
+/src/api/UniEye.Modules.Users.Api/obj
+/src/api/UniEye.Modules.Users.App/bin/Debug/net7.0
+/src/api/UniEye.Modules.Users.App/obj
+/src/api/UniEye.Modules.Users.Shared/bin/Debug/net7.0

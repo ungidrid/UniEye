@@ -14,7 +14,7 @@ namespace UniEye.Modules.Students.Core.Models
 
         public int StudyFormId { get; set; }
         public StudyForm StudyForm { get; set; }
-
+        
         public ICollection<Student> Students { get; set; }
     }
 }

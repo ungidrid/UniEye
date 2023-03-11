@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UniEye.Modules.Students.App.Students.Commands.Create;
 
 namespace UniEye.Modules.Students.Api.Controllers
 {
@@ -19,10 +20,10 @@ namespace UniEye.Modules.Students.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
-        public string Hello()
+        [HttpPost]
+        public async Task<int> CreateStudent(CreateStudentCommand command)
         {
-            return "Hello world";
+            return await _mediator.Send(command);
         }
     }
 }

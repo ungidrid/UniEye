@@ -63,5 +63,7 @@ namespace UniEye.Shared.Domain
         }
 
         public int CompareTo(object other) => Id.CompareTo(((Enumeration)other).Id);
+
+        public static implicit operator int(Enumeration e) => e.Id;
     }
 }

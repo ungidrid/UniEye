@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UniEye.Shared.Domain.Domain;
 
-namespace UniEye.Shared.Domain
+namespace UniEye.Shared.Domain.Domain
 {
-    public interface IDomainModel: IIdentifiable
+    public interface IIdentifiable
     {
+        int Id { get; set; }
     }
 }

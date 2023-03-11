@@ -19,6 +19,7 @@ namespace UniEye.Modules.Students.Infrastructure
         {
             var currentAssembly = typeof(StudentsContext).Assembly;
             builder.ApplyConfigurationsFromAssembly(currentAssembly);
+            builder.Seed();
         }
     }
 }

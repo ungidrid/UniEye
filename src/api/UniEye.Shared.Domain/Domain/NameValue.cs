@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace UniEye.Shared.Domain.Domain
+{
+    public class NameValue: IIdentifiable
+    {
+        public int Id { get; set; }
+        public string Value { get; set; }
+
+
+        public NameValue(int id, string value)
+        {
+            Id = id;
+            Value = value;
+        }
+
+    }
+}

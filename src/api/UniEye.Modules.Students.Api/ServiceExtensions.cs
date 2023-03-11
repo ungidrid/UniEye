@@ -12,7 +12,6 @@ namespace UniEye.Modules.Students.Api
             services.AddInfrastructure(configuration);
 
             var appAssembly = typeof(IAssemblyMarker).Assembly;
-            services.AddAutoMapper(appAssembly);
             services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(appAssembly));
 
             return services;

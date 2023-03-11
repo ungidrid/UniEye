@@ -16,3 +16,7 @@
 /src/api/UniEye.Shared/bin/Debug/net7.0
 /src/api/UniEye.Shared/obj
 /src/api/UniEye.Modules.Students.Core/bin/Debug/net7.0
+/src/api/UniEye.Shared.App/bin/Debug/net7.0
+/src/api/UniEye.Shared.App/obj
+/src/api/UniEye.Shared.Domain/obj
+/src/api/UniEye.Shared.Domain/bin/Debug/net7.0

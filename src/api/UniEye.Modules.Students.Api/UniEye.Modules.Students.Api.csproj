@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\UniEye.Modules.Students.App\UniEye.Modules.Students.App.csproj" />
     <ProjectReference Include="..\UniEye.Modules.Students.Infrastructure\UniEye.Modules.Students.Infrastructure.csproj" />
+    <ProjectReference Include="..\UniEye.Shared\UniEye.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

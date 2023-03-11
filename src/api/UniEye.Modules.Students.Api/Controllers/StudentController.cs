@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,13 @@ namespace UniEye.Modules.Students.Api.Controllers
     [Route("[controller]")]
     public class StudentController: ControllerBase
     {
+        private readonly IMediator _mediator;
+
+        public StudentController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         [HttpGet]
         public string Hello()
         {

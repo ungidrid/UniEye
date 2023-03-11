@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/src/api/.vs
+/src/api/UniEye.Bootstrapper/.vs
+/src/api/UniEye.Bootstrapper/bin/Debug/net7.0
+/src/api/UniEye.Bootstrapper/obj
+/src/api/UniEye.Modules.Students.Api/bin/Debug/net7.0
+/src/api/UniEye.Modules.Students.Api/obj
+/src/api/UniEye.Modules.Students.App/bin/Debug/net7.0
+/src/api/UniEye.Modules.Students.App/obj
+/src/api/UniEye.Modules.Students.Core/obj
+/src/api/UniEye.Modules.Students.Infrastructure/bin/Debug/net7.0
+/src/api/UniEye.Modules.Students.Infrastructure/obj
+/src/api/UniEye.Shared/bin/Debug/net7.0
+/src/api/UniEye.Shared/obj
+/src/api/UniEye.Modules.Students.Core/bin/Debug/net7.0

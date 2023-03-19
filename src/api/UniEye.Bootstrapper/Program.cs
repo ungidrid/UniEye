@@ -19,7 +19,7 @@ void ConfigureServices(IServiceCollection services, IConfiguration configuration
     services.AddControllers();
     services.AddSharedModule(GetAssembliesToScan())
         .AddStudentsModule(configuration)
-        .AddUsersModule();
+        .AddUsersModule(configuration);
 
     services.AddSwaggerGen(swagger =>
     {

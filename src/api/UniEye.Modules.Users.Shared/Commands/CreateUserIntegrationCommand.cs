@@ -10,10 +10,10 @@ namespace UniEye.Modules.Users.Shared.Commands
 {
     public record CreateUserIntegrationCommand : IntegrationEvent
     {
-        [JsonInclude]
+        public int Id { get; set; }
         public string FirstName { get; set; }
-        [JsonInclude]
         public string LastName { get; set; }
+        public string Email { get; set; }
 
         public CreateUserIntegrationCommand(string firstName, string lastName, Guid? correlationId = null): base(correlationId)
         {

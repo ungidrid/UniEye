@@ -5,18 +5,21 @@ namespace UniEye.Shared.App
 {
     public record IntegrationEvent : CorrelatedBy<Guid>
     {
-        [JsonConstructor]
+        public Guid CorrelationId { get; set; }
+
+        public DateTime CreationDate { get; set; }
+
+        public IntegrationEvent()
+        {
+            CorrelationId = Guid.NewGuid();
+            CreationDate = DateTime.UtcNow;
+        }
+
         public IntegrationEvent(Guid? correlationId = null, DateTime? creationDate = null)
         {
             CorrelationId = correlationId ?? Guid.NewGuid();
             CreationDate = creationDate ?? DateTime.UtcNow;
         }
-
-        [JsonInclude]
-        public Guid CorrelationId { get; protected init; }
-
-        [JsonInclude]
-        public DateTime CreationDate { get; private init; }
     }
 
 }

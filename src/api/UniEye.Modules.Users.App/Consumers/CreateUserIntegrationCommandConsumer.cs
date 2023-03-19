@@ -30,7 +30,8 @@ namespace UniEye.Modules.Users.App.Consumers
             var message = context.Message;
             var user = await CreateAdUser(message);
 
-            await _bus.Publish(new UserCreatedEvent(message.Email, user.DisplayName, user.UserPrincipalName, FIRST_LOGIN_PASSWORD, context.CorrelationId));
+            var @event = new UserCreatedEvent(user.DisplayName, user.UserPrincipalName, FIRST_LOGIN_PASSWORD, message.Identity, context.CorrelationId);
+            await _bus.Publish(@event);
         }
 
         private async Task<User> CreateAdUser(CreateUserIntegrationCommand message)
@@ -39,10 +40,10 @@ namespace UniEye.Modules.Users.App.Consumers
 
             var newUser = new User
             {
-                Id = message.Id.ToString(),
+                Id = message.Identity.ToString(),
                 AccountEnabled = true,
                 DisplayName = $"{message.FirstName} {message.LastName}",
-                Mail = message.Email,
+                Mail = message.PersonalEmail,
                 MailNickname = $"{message.FirstName}.{message.LastName}",
                 GivenName = message.FirstName,
                 Surname = message.LastName,
@@ -61,7 +62,7 @@ namespace UniEye.Modules.Users.App.Consumers
         {
             for (int? i = null; ; i = i.HasValue ? i + 1 : 1)
             {
-                var userPrincipalName = $"{firstName}.{lastName}{i}@{_azureAdOptions.Domain}";
+                var userPrincipalName = $"{firstName.ToLower()}.{lastName.ToLower()}{i}@{_azureAdOptions.Domain}";
 
                 var users = await _graphServiceClient.Users
                     .Request()

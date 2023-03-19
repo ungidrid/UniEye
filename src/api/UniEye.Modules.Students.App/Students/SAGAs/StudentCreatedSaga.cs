@@ -14,11 +14,38 @@ namespace UniEye.Modules.Students.App.Students.SAGAs
 
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
-
         public string? PersonalEmail { get; set; }
+        public Guid Identity { get; set; }
+
         public string? DisplayName { get; set; }
         public string? DomainName { get; set; }
         public string? FirstLoginPassword { get; set; }
+
+        public CreateUserIntegrationCommand CreateUserIntegrationCommand()
+        {
+            return new CreateUserIntegrationCommand(FirstName, LastName, PersonalEmail, Identity, CorrelationId);
+        }
+
+        public SendNotificationIntegrationCommand CreateSendOnboardingNotificationCommand()
+        {
+            var template = NotificationTemplateProvider.UserOnboardingTemplate(PersonalEmail, DisplayName, DomainName, FirstLoginPassword);
+            return new SendNotificationIntegrationCommand(template, Identity);
+        }
+
+        public void PatchState(StudentCreatedEvent @event)
+        {
+            FirstName = @event.FirstName;
+            LastName = @event.LastName;
+            PersonalEmail = @event.PersonalEmail;
+            Identity = @event.Identity;
+        }
+
+        public void PatchState(UserCreatedEvent @event)
+        {
+            DisplayName = @event.DisplayName;
+            DomainName = @event.DomainName;
+            FirstLoginPassword = @event.FirstLoginPassword;
+        }
     }
 
     public class StudentCreatedSaga : MassTransitStateMachine<StudentCreatedSagaState>
@@ -30,24 +57,14 @@ namespace UniEye.Modules.Students.App.Students.SAGAs
 
             Initially(
                 When(StudentCreated)
-                    .Then(x => {
-                        x.Saga.FirstName = x.Message.FirstName;
-                        x.Saga.LastName = x.Message.LastName;
-                    })
-                    .Publish(context => new CreateUserIntegrationCommand(context.Saga.FirstName, context.Saga.LastName, context.Saga.CorrelationId))
+                    .Then(x => x.Saga.PatchState(x.Message))
+                    .Publish(context => context.Saga.CreateUserIntegrationCommand())
                     .TransitionTo(StudentExistsState));
 
             During(StudentExistsState,
                 When(UserCreated)
-                    .Then(x => { 
-                        x.Saga.PersonalEmail = x.Message.PersonalEmail;
-                        x.Saga.DisplayName = x.Message.DisplayName;
-                        x.Saga.DomainName = x.Message.DomainName;
-                        x.Saga.FirstLoginPassword = x.Message.FirstLoginPassword;
-                    })
-                    .Publish(context => new SendNotificationIntegrationCommand(
-                        NotificationTemplateProvider.UserOnboardingTemplate(context.Saga.PersonalEmail, context.Saga.DisplayName, context.Saga.DomainName, context.Saga.FirstLoginPassword)
-                    ))
+                    .Then(x => x.Saga.PatchState(x.Message))
+                    .Publish(context => context.Saga.CreateSendOnboardingNotificationCommand())
                     .Finalize());
                 
         }

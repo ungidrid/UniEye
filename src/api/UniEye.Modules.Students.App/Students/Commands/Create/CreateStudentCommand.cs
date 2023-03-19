@@ -10,6 +10,7 @@ namespace UniEye.Modules.Students.App.Students.Commands.Create
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string PersonalEmail { get; set; }
         public int GroupId { get; set; }
         public int PaymentTermId { get; set; }
     }
@@ -29,7 +30,8 @@ namespace UniEye.Modules.Students.App.Students.Commands.Create
         {
             var student = new Student 
             { 
-                FirstName = request.FirstName, 
+                FirstName = request.FirstName,
+                PersonalEmail = request.PersonalEmail,
                 LastName = request.LastName,
                 GroupId = request.GroupId, 
                 PaymentTermId = request.PaymentTermId
@@ -38,7 +40,8 @@ namespace UniEye.Modules.Students.App.Students.Commands.Create
             _context.Add(student);
             await _context.SaveChangesAsync();
 
-            await _eventBus.Publish(new StudentCreatedEvent(student.FirstName, student.LastName));
+            var @event = new StudentCreatedEvent(student.FirstName, student.LastName, student.PersonalEmail, student.IdentityGuid);
+            await _eventBus.Publish(@event);
 
             return student.Id;
         }

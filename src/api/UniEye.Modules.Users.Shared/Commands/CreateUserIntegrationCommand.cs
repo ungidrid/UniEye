@@ -5,21 +5,25 @@ namespace UniEye.Modules.Users.Shared.Commands
 {
     public record CreateUserIntegrationCommand : IntegrationEvent
     {
-        public int Id { get; set; }
+        public Guid Identity { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Email { get; set; }
+        public string PersonalEmail { get; set; }
 
-        public CreateUserIntegrationCommand(string firstName, string lastName, Guid? correlationId = null, DateTime? creationDate = null): base(correlationId, creationDate)
+        public CreateUserIntegrationCommand()
+        {
+        }
+
+        public CreateUserIntegrationCommand(
+            string firstName, string lastName, 
+            string personalEmail, Guid identity, 
+            Guid? correlationId = null, DateTime? creationDate = null
+        ): base(correlationId, creationDate)
         {
             FirstName = firstName;
             LastName = lastName;
-        }
-
-        [JsonConstructor]
-        public CreateUserIntegrationCommand(string firstName, string lastName, Guid correlationId, DateTime creationDate) : 
-            this(firstName, lastName, (Guid?)correlationId, creationDate)
-        {
+            PersonalEmail = personalEmail;
+            Identity = identity;
         }
     }
 }

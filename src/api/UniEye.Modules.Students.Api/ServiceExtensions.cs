@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using UniEye.Modules.Students.App;
 using UniEye.Modules.Students.Infrastructure;
 
 namespace UniEye.Modules.Students.Api

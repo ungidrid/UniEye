@@ -3,8 +3,6 @@ using MediatR;
 using UniEye.Modules.Students.Core.Models;
 using UniEye.Modules.Students.Infrastructure;
 using UniEye.Modules.Students.Shared.Events;
-using UniEye.Modules.Users.Shared.Commands;
-using UniEye.Shared.Domain;
 
 namespace UniEye.Modules.Students.App.Students.Commands.Create
 {

@@ -1,12 +1,6 @@
 ﻿using MassTransit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using UniEye.Modules.Notifications.Shared.Commands;
-using UniEye.Modules.Notifications.Shared.Constants;
+using UniEye.Modules.Notifications.Shared.Templates;
 using UniEye.Modules.Students.Shared.Events;
 using UniEye.Modules.Users.Shared.Commands;
 using UniEye.Modules.Users.Shared.Events;
@@ -51,17 +45,9 @@ namespace UniEye.Modules.Students.App.Students.SAGAs
                         x.Saga.DomainName = x.Message.DomainName;
                         x.Saga.FirstLoginPassword = x.Message.FirstLoginPassword;
                     })
-                    .Publish(context => 
-                        new SendNotificationIntegrationCommand(
-                            NotificationTemplateCodes.USER_ONBOARDING_TEMPLATE, 
-                            new Dictionary<string, string> 
-                            {
-                                [nameof(context.Saga.PersonalEmail)] = context.Saga.PersonalEmail,
-                                [nameof(context.Saga.DisplayName)] = context.Saga.DisplayName,
-                                [nameof(context.Saga.DomainName)] = context.Saga.DomainName,
-                                [nameof(context.Saga.FirstLoginPassword)] = context.Saga.FirstLoginPassword
-                            })
-                    )
+                    .Publish(context => new SendNotificationIntegrationCommand(
+                        NotificationTemplateProvider.UserOnboardingTemplate(context.Saga.PersonalEmail, context.Saga.DisplayName, context.Saga.DomainName, context.Saga.FirstLoginPassword)
+                    ))
                     .Finalize());
                 
         }

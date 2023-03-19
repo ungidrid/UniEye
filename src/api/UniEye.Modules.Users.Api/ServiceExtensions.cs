@@ -1,20 +1,10 @@
 ﻿using Azure.Core;
 using Azure.Identity;
-using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Graph.ExternalConnectors;
 using Microsoft.Graph;
-using Microsoft.Identity.Web;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using UniEye.Modules.Users.App.Settings;
 using System.Net.Http.Headers;
-using MassTransit.Configuration;
 using Microsoft.Extensions.Options;
 
 namespace UniEye.Modules.Users.Api

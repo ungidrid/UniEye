@@ -15,17 +15,16 @@ namespace UniEye.Modules.Users.Shared.Commands
         public string LastName { get; set; }
         public string Email { get; set; }
 
-        public CreateUserIntegrationCommand(string firstName, string lastName, Guid? correlationId = null): base(correlationId)
+        public CreateUserIntegrationCommand(string firstName, string lastName, Guid? correlationId = null, DateTime? creationDate): base(correlationId, creationDate)
         {
             FirstName = firstName;
             LastName = lastName;
         }
 
         [JsonConstructor]
-        public CreateUserIntegrationCommand(string firstName, string lastName, Guid correlationId, DateTime creationDate) : base(correlationId, creationDate)
+        public CreateUserIntegrationCommand(string firstName, string lastName, Guid correlationId, DateTime creationDate) : 
+            this(firstName, lastName, (Guid?)correlationId, creationDate)
         {
-            FirstName = firstName;
-            LastName = lastName;
         }
     }
 }

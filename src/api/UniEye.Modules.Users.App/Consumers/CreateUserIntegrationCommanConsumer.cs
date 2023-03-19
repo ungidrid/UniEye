@@ -3,29 +3,40 @@ using Microsoft.Extensions.Options;
 using Microsoft.Graph;
 using UniEye.Modules.Users.App.Settings;
 using UniEye.Modules.Users.Shared.Commands;
+using UniEye.Modules.Users.Shared.Events;
 
 namespace UniEye.Modules.Users.App.Consumers
 {
     public class CreateUserIntegrationCommanConsumer : IConsumer<CreateUserIntegrationCommand>
     {
+        private const string FIRST_LOGIN_PASSWORD = "Pa$$word";
+
         private readonly GraphServiceClient _graphServiceClient;
+        private readonly IBus _bus;
         private readonly AzureAdOptions _azureAdOptions;
 
-        public CreateUserIntegrationCommanConsumer(GraphServiceClient graphServiceClient, IOptions<AzureAdOptions> azureAdOptions)
+        public CreateUserIntegrationCommanConsumer(
+            GraphServiceClient graphServiceClient, 
+            IBus bus, 
+            IOptions<AzureAdOptions> azureAdOptions)
         {
             _graphServiceClient = graphServiceClient;
+            _bus = bus;
             _azureAdOptions = azureAdOptions.Value;
         }
 
         public async Task Consume(ConsumeContext<CreateUserIntegrationCommand> context)
         {
             var message = context.Message;
-            await CreateAdUser(message);
+            var user = await CreateAdUser(message);
+
+            await _bus.Publish(new UserCreatedEvent(message.Email, user.DisplayName, user.UserPrincipalName, FIRST_LOGIN_PASSWORD, context.CorrelationId));
         }
 
-        private async Task CreateAdUser(CreateUserIntegrationCommand message)
+        private async Task<User> CreateAdUser(CreateUserIntegrationCommand message)
         {
             var principalName = await GetEmail(message.FirstName, message.LastName);
+
             var newUser = new User
             {
                 Id = message.Id.ToString(),
@@ -38,12 +49,12 @@ namespace UniEye.Modules.Users.App.Consumers
                 UserPrincipalName = principalName,
                 PasswordProfile = new PasswordProfile
                 {
-                    Password = "Pa$$word",
+                    Password = FIRST_LOGIN_PASSWORD,
                     ForceChangePasswordNextSignIn = true
                 }
             };
 
-            await _graphServiceClient.Users.Request().AddAsync(newUser);
+            return await _graphServiceClient.Users.Request().AddAsync(newUser);
         }
 
         private async Task<string> GetEmail(string firstName, string lastName)

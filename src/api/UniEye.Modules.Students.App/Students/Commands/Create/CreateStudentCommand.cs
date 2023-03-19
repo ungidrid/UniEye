@@ -2,6 +2,7 @@
 using MediatR;
 using UniEye.Modules.Students.Core.Models;
 using UniEye.Modules.Students.Infrastructure;
+using UniEye.Modules.Students.Shared.Events;
 using UniEye.Modules.Users.Shared.Commands;
 using UniEye.Shared.Domain;
 
@@ -39,8 +40,7 @@ namespace UniEye.Modules.Students.App.Students.Commands.Create
             _context.Add(student);
             await _context.SaveChangesAsync();
 
-            //TODO: send UserCreatedEvent here and use SAGA
-            await _eventBus.Publish(new CreateUserIntegrationCommand(student.FirstName, student.LastName));
+            await _eventBus.Publish(new StudentCreatedEvent(student.FirstName, student.LastName));
 
             return student.Id;
         }

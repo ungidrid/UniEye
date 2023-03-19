@@ -1,6 +1,7 @@
 ﻿using MassTransit;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +16,9 @@ namespace UniEye.Modules.Users.App.Consumers
             var message = context.Message;
 
             var userEmail = $"{message.FirstName}.{message.LastName}@lnu.edu.ua";
+            Debug.WriteLine(userEmail);
 
-            //Create user in AD
+            //TODO: Create user in AD
         }
     }
 }

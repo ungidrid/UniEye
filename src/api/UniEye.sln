@@ -31,9 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniEye.Shared.App", "UniEye
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniEye.Modules.Users.Shared", "UniEye.Modules.Users.Shared\UniEye.Modules.Users.Shared.csproj", "{69768B72-8B53-486B-A7B8-61E135F1778E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniEye.Modules.Users.App", "UniEye.Modules.Users.App\UniEye.Modules.Users.App.csproj", "{8A32E917-8820-4900-B575-CFA9B84E5C8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniEye.Modules.Users.App", "UniEye.Modules.Users.App\UniEye.Modules.Users.App.csproj", "{8A32E917-8820-4900-B575-CFA9B84E5C8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniEye.Modules.Users.Api", "UniEye.Modules.Users.Api\UniEye.Modules.Users.Api.csproj", "{F3C5EED3-FF30-498A-8618-2102589D4358}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniEye.Modules.Users.Api", "UniEye.Modules.Users.Api\UniEye.Modules.Users.Api.csproj", "{F3C5EED3-FF30-498A-8618-2102589D4358}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniEye.Modules.Students.Shared", "UniEye.Modules.Students.Shared\UniEye.Modules.Students.Shared.csproj", "{5D8469A4-524F-44D0-8251-9E9443AD0305}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,10 @@ Global
 		{F3C5EED3-FF30-498A-8618-2102589D4358}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3C5EED3-FF30-498A-8618-2102589D4358}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3C5EED3-FF30-498A-8618-2102589D4358}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D8469A4-524F-44D0-8251-9E9443AD0305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D8469A4-524F-44D0-8251-9E9443AD0305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D8469A4-524F-44D0-8251-9E9443AD0305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D8469A4-524F-44D0-8251-9E9443AD0305}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +109,7 @@ Global
 		{69768B72-8B53-486B-A7B8-61E135F1778E} = {341E12D4-3573-4AAC-BC66-58BA8C9DFD6A}
 		{8A32E917-8820-4900-B575-CFA9B84E5C8B} = {341E12D4-3573-4AAC-BC66-58BA8C9DFD6A}
 		{F3C5EED3-FF30-498A-8618-2102589D4358} = {341E12D4-3573-4AAC-BC66-58BA8C9DFD6A}
+		{5D8469A4-524F-44D0-8251-9E9443AD0305} = {9975E83D-D7F8-486E-AB9B-996D89F89A17}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88BFB818-7507-48B3-B1AC-DA42E83DE05A}

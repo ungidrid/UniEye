@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MassTransit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,25 +8,20 @@ using System.Threading.Tasks;
 
 namespace UniEye.Shared.App
 {
-    public record IntegrationEvent
+    public record IntegrationEvent : CorrelatedBy<Guid>
     {
-        public IntegrationEvent()
-        {
-            Id = Guid.NewGuid();
-            CreationDate = DateTime.UtcNow;
-        }
-
         [JsonConstructor]
-        public IntegrationEvent(Guid id, DateTime createDate)
+        public IntegrationEvent(Guid? correlationId = null, DateTime? creationDate = null)
         {
-            Id = id;
-            CreationDate = createDate;
+            CorrelationId = correlationId ?? Guid.NewGuid();
+            CreationDate = creationDate ?? DateTime.UtcNow;
         }
 
         [JsonInclude]
-        public Guid Id { get; private init; }
+        public Guid CorrelationId { get; protected init; }
 
         [JsonInclude]
         public DateTime CreationDate { get; private init; }
     }
+
 }

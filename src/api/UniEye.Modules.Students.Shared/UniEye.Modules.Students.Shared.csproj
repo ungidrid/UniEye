@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UniEye.Shared.App\UniEye.Shared.App.csproj" />
+  </ItemGroup>
+
 </Project>

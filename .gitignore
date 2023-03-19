@@ -28,3 +28,7 @@
 /src/api/UniEye.Modules.Users.App/obj
 /src/api/UniEye.Modules.Users.Shared/bin/Debug/net7.0
 /src/api/UniEye.Modules.Students.Shared/bin/Debug/net7.0
+/src/api/UniEye.Modules.Notifications.App/bin/Debug/net7.0
+/src/api/UniEye.Modules.Notifications.App/obj
+/src/api/UniEye.Modules.Notifications.Shared/bin/Debug/net7.0
+/src/api/UniEye.Modules.Notifications.Shared/obj

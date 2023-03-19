@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\UniEye.Modules.Notifications.App\UniEye.Modules.Notifications.App.csproj" />
     <ProjectReference Include="..\UniEye.Modules.Students.Api\UniEye.Modules.Students.Api.csproj" />
     <ProjectReference Include="..\UniEye.Modules.Users.Api\UniEye.Modules.Users.Api.csproj" />
   </ItemGroup>

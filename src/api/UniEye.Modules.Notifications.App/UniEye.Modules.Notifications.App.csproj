@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UniEye.Modules.Notifications.Shared\UniEye.Modules.Notifications.Shared.csproj" />
+    <ProjectReference Include="..\UniEye.Shared.App\UniEye.Shared.App.csproj" />
+  </ItemGroup>
+
+</Project>

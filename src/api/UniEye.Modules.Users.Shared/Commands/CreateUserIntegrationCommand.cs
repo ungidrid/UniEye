@@ -15,7 +15,7 @@ namespace UniEye.Modules.Users.Shared.Commands
         public string LastName { get; set; }
         public string Email { get; set; }
 
-        public CreateUserIntegrationCommand(string firstName, string lastName, Guid? correlationId = null, DateTime? creationDate): base(correlationId, creationDate)
+        public CreateUserIntegrationCommand(string firstName, string lastName, Guid? correlationId = null, DateTime? creationDate = null): base(correlationId, creationDate)
         {
             FirstName = firstName;
             LastName = lastName;

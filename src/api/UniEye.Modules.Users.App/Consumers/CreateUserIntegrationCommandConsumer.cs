@@ -7,7 +7,7 @@ using UniEye.Modules.Users.Shared.Events;
 
 namespace UniEye.Modules.Users.App.Consumers
 {
-    public class CreateUserIntegrationCommanConsumer : IConsumer<CreateUserIntegrationCommand>
+    public class CreateUserIntegrationCommandConsumer : IConsumer<CreateUserIntegrationCommand>
     {
         private const string FIRST_LOGIN_PASSWORD = "Pa$$word";
 
@@ -15,7 +15,7 @@ namespace UniEye.Modules.Users.App.Consumers
         private readonly IBus _bus;
         private readonly AzureAdOptions _azureAdOptions;
 
-        public CreateUserIntegrationCommanConsumer(
+        public CreateUserIntegrationCommandConsumer(
             GraphServiceClient graphServiceClient, 
             IBus bus, 
             IOptions<AzureAdOptions> azureAdOptions)

@@ -1,40 +1,37 @@
 ﻿using MassTransit;
 using Microsoft.Extensions.Options;
 using Microsoft.Graph;
+using UniEye.Modules.Students.Shared.Events;
 using UniEye.Modules.Users.App.Settings;
-using UniEye.Modules.Users.Shared.Commands;
 using UniEye.Modules.Users.Shared.Events;
 
 namespace UniEye.Modules.Users.App.Consumers
 {
-    public class CreateUserIntegrationCommandConsumer : IConsumer<CreateUserIntegrationCommand>
+    public class StudentCreatedEventConsumer : IConsumer<StudentCreatedEvent>
     {
         private const string FIRST_LOGIN_PASSWORD = "Pa$$word";
 
         private readonly GraphServiceClient _graphServiceClient;
-        private readonly IBus _bus;
         private readonly AzureAdOptions _azureAdOptions;
 
-        public CreateUserIntegrationCommandConsumer(
+        public StudentCreatedEventConsumer(
             GraphServiceClient graphServiceClient, 
-            IBus bus, 
             IOptions<AzureAdOptions> azureAdOptions)
         {
             _graphServiceClient = graphServiceClient;
-            _bus = bus;
             _azureAdOptions = azureAdOptions.Value;
         }
 
-        public async Task Consume(ConsumeContext<CreateUserIntegrationCommand> context)
+        public async Task Consume(ConsumeContext<StudentCreatedEvent> context)
         {
             var message = context.Message;
             var user = await CreateAdUser(message);
 
-            var @event = new UserCreatedEvent(user.DisplayName, user.UserPrincipalName, FIRST_LOGIN_PASSWORD, message.Identity, context.CorrelationId);
-            await _bus.Publish(@event);
+            var @event = new UserCreatedEvent(user.DisplayName, user.UserPrincipalName, FIRST_LOGIN_PASSWORD, message.Identity);
+            await context.Publish(@event);
         }
 
-        private async Task<User> CreateAdUser(CreateUserIntegrationCommand message)
+        private async Task<User> CreateAdUser(StudentCreatedEvent message)
         {
             var principalName = await GetEmail(message.FirstName, message.LastName);
 

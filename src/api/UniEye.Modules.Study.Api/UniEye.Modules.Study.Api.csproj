@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UniEye.Modules.Study.App\UniEye.Modules.Study.App.csproj" />
+    <ProjectReference Include="..\UniEye.Modules.Study.Infrastructure\UniEye.Modules.Study.Infrastructure.csproj" />
     <ProjectReference Include="..\UniEye.Shared\UniEye.Shared.csproj" />
   </ItemGroup>
 

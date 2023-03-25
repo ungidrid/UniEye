@@ -7,9 +7,9 @@ namespace UniEye.Shared.Domain
         public int Id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
-        protected Enumeration(int id, string name, string code, string description = null) => (Id, Name, Code, Description) = (id, name, code, description);
+        protected Enumeration(int id, string name, string code, string? description = null) => (Id, Name, Code, Description) = (id, name, code, description);
 
         public override string ToString() => Name;
 

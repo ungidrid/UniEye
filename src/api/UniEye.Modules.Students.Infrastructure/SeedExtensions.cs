@@ -8,9 +8,6 @@ namespace UniEye.Modules.Students.Infrastructure
     {
         public static void Seed(this ModelBuilder builder)
         {
-            builder.Entity<StudyForm>().HasData(Enumeration.GetAll<StudyForm>());
-            builder.Entity<PaymentTerm>().HasData(Enumeration.GetAll<PaymentTerm>());
-
             builder.Entity<Group>().HasData(
                 new Group() { Id = 1, Name = "ПМІ-11", StudyFormId = StudyForm.FullTime },
                 new Group() { Id = 2, Name = "ПМІ-12", StudyFormId = StudyForm.FullTime },

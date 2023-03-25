@@ -17,6 +17,8 @@ namespace UniEye.Modules.Students.Infrastructure
     
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
+
             var currentAssembly = typeof(StudentsContext).Assembly;
             builder.ApplyConfigurationsFromAssembly(currentAssembly);
             builder.Seed();

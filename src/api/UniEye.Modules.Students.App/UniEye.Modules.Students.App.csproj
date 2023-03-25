@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <Folder Include="Groups\Commands\" />
-    <Folder Include="Students\Queries\" />
   </ItemGroup>
 
 </Project>

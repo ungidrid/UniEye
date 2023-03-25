@@ -8,8 +8,7 @@ namespace UniEye.Modules.Students.Core.Models
         public int Id { get; set; }
         public Guid IdentityGuid { get; set; } = Guid.NewGuid();
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public Name Name { get; set; }
         public string PersonalEmail { get; set; }
 
         public int GroupId { get; set; }

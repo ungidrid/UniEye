@@ -6,7 +6,7 @@ using UniEye.Shared.Domain.Domain;
 namespace UniEye.Modules.Students.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("students/[controller]")]
     public class GroupController: ControllerBase
     {
         private readonly IMediator _mediator;

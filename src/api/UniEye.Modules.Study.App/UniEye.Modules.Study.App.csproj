@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\UniEye.Modules.Students.Shared\UniEye.Modules.Students.Shared.csproj" />
     <ProjectReference Include="..\UniEye.Modules.Study.Core\UniEye.Modules.Study.Core.csproj" />
+    <ProjectReference Include="..\UniEye.Modules.Study.Infrastructure\UniEye.Modules.Study.Infrastructure.csproj" />
     <ProjectReference Include="..\UniEye.Shared.App\UniEye.Shared.App.csproj" />
   </ItemGroup>
 

@@ -13,5 +13,6 @@ namespace UniEye.Modules.Study.Core.Models
 
         public int Value { get; set; }
         public DateTime Date { get; set; }
+        public string? Note { get; set; }
     }
 }

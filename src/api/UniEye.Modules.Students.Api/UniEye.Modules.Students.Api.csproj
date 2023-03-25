@@ -9,11 +9,13 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+    <PackageReference Include="Refit.HttpClientFactory" Version="6.3.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\UniEye.Modules.Students.App\UniEye.Modules.Students.App.csproj" />
     <ProjectReference Include="..\UniEye.Modules.Students.Infrastructure\UniEye.Modules.Students.Infrastructure.csproj" />
+    <ProjectReference Include="..\UniEye.Modules.Students.Shared\UniEye.Modules.Students.Shared.csproj" />
     <ProjectReference Include="..\UniEye.Shared\UniEye.Shared.csproj" />
   </ItemGroup>
 

@@ -3,6 +3,7 @@ using MediatR;
 using UniEye.Modules.Students.Core.Models;
 using UniEye.Modules.Students.Infrastructure;
 using UniEye.Modules.Students.Shared.Events;
+using UniEye.Shared.Domain.Domain;
 
 namespace UniEye.Modules.Students.App.Students.Commands.Create
 {
@@ -30,9 +31,8 @@ namespace UniEye.Modules.Students.App.Students.Commands.Create
         {
             var student = new Student 
             { 
-                FirstName = request.FirstName,
+                Name = new Name(request.FirstName, request.LastName),
                 PersonalEmail = request.PersonalEmail,
-                LastName = request.LastName,
                 GroupId = request.GroupId, 
                 PaymentTermId = request.PaymentTermId
             };
@@ -40,7 +40,7 @@ namespace UniEye.Modules.Students.App.Students.Commands.Create
             _context.Add(student);
             await _context.SaveChangesAsync();
 
-            var @event = new StudentCreatedEvent(student.FirstName, student.LastName, student.PersonalEmail, student.IdentityGuid);
+            var @event = new StudentCreatedEvent(student.Name.FirstName, student.Name.LastName, student.PersonalEmail, student.IdentityGuid);
             await _eventBus.Publish(@event);
 
             return student.Id;

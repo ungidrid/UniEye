@@ -19,6 +19,8 @@ namespace UniEye.Modules.Students.Infrastructure.EntityConfigurations
             builder.HasOne(x => x.PaymentTerm)
                 .WithMany()
                 .HasForeignKey(x => x.PaymentTermId);
+
+            builder.OwnsOne(x => x.Name);
         }
     }
 }

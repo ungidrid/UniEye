@@ -2,6 +2,7 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using UniEye.Modules.Notifications.App;
 using UniEye.Modules.Students.Api;
+using UniEye.Modules.Study.Api;
 using UniEye.Modules.Users.Api;
 using UniEye.Shared;
 
@@ -20,7 +21,8 @@ void ConfigureServices(IServiceCollection services, IConfiguration configuration
     services.AddSharedModule(GetAssembliesToScan())
         .AddStudentsModule(configuration)
         .AddUsersModule(configuration)
-        .AddNotificationsModule(configuration);
+        .AddNotificationsModule(configuration)
+        .AddStudyModule(configuration);
 
     services.AddSwaggerGen(swagger =>
     {
@@ -53,6 +55,7 @@ Assembly[] GetAssembliesToScan()
     {
         typeof(UniEye.Modules.Students.App.IAssemblyMarker).Assembly,
         typeof(UniEye.Modules.Users.App.IAssebmlyMarker).Assembly,
-        typeof(UniEye.Modules.Notifications.App.IAssemblyMarker).Assembly
+        typeof(UniEye.Modules.Notifications.App.IAssemblyMarker).Assembly,
+        typeof(UniEye.Modules.Study.App.IAssemblyMarker).Assembly
     };
 }

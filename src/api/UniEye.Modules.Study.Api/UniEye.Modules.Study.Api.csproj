@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UniEye.Modules.Study.App\UniEye.Modules.Study.App.csproj" />
+    <ProjectReference Include="..\UniEye.Shared\UniEye.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

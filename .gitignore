@@ -32,3 +32,11 @@
 /src/api/UniEye.Modules.Notifications.App/obj
 /src/api/UniEye.Modules.Notifications.Shared/bin/Debug/net7.0
 /src/api/UniEye.Modules.Notifications.Shared/obj
+/src/api/UniEye.Modules.Study.Api/obj
+/src/api/UniEye.Modules.Study.App/obj
+/src/api/UniEye.Modules.Study.Core/obj
+/src/api/UniEye.Modules.Study.Shared/obj
+/src/api/UniEye.Modules.Study.Api/bin/Debug/net7.0
+/src/api/UniEye.Modules.Study.Core/bin/Debug/net7.0
+/src/api/UniEye.Modules.Study.Shared/bin/Debug/net7.0
+/src/api/UniEye.Modules.Study.App/bin/Debug/net7.0

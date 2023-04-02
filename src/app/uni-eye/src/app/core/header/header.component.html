@@ -1,0 +1,6 @@
+<mat-toolbar color="primary">
+  <span>{{title}}</span>
+  <span class="spacer"></span>
+  <button *ngIf="!isLoggedIn" mat-stroked-button (click)="login()">Увійти</button>
+  <button *ngIf="isLoggedIn" mat-stroked-button (click)="logout()">Вийти</button>
+</mat-toolbar>

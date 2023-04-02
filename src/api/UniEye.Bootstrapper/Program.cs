@@ -1,9 +1,16 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Azure;
+using Microsoft.Graph.ExternalConnectors;
+using Microsoft.Identity.Web;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using UniEye.Bootstrapper.Extensions;
+using UniEye.Bootstrapper.Settings;
 using UniEye.Modules.Notifications.App;
 using UniEye.Modules.Students.Api;
 using UniEye.Modules.Study.Api;
 using UniEye.Modules.Users.Api;
+using UniEye.Modules.Users.App.Settings;
 using UniEye.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,12 +18,16 @@ var builder = WebApplication.CreateBuilder(args);
 ConfigureServices(builder.Services, builder.Configuration);
 
 var app = builder.Build();
-Configure(app, app.Environment);
+Configure(app, app.Environment, builder.Configuration);
 app.Run();
 
 
 void ConfigureServices(IServiceCollection services, IConfiguration configuration)
 {
+    services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        .AddMicrosoftIdentityWebApi(configuration.GetSection(AzureAdOptions.ConfigSection));
+
+    services.AddSwagger(configuration);
     services.AddControllers();
     services.AddSharedModule(GetAssembliesToScan())
         .AddStudentsModule(configuration)
@@ -24,28 +35,21 @@ void ConfigureServices(IServiceCollection services, IConfiguration configuration
         .AddNotificationsModule(configuration)
         .AddStudyModule(configuration);
 
-    services.AddSwaggerGen(swagger =>
+    services.AddCors(o => o.AddPolicy("default", builder =>
     {
-        swagger.CustomSchemaIds(x => x.FullName);
-        swagger.SwaggerDoc("v1", new OpenApiInfo
-        {
-            Title = "UniEye",
-            Version = "v1"
-        });
-    });
-} 
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    }));
+}
 
-void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+void Configure(IApplicationBuilder app, IWebHostEnvironment env, IConfiguration configuration)
 {
-    app.UseSwagger();
-
-    app.UseSwaggerUI(options =>
-    {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-        options.RoutePrefix = string.Empty;
-    });
-
+    app.UseSwaggerModule(configuration);
+    app.UseCors("default");
     app.UseRouting();
+    app.UseAuthentication();
+    app.UseAuthorization();
     app.UseEndpoints(endpoints => endpoints.MapControllers());
 }
 

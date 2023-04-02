@@ -8,9 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="MassTransit" Version="8.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="7.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Identity.Web" Version="2.7.0" />
   </ItemGroup>
 
   <ItemGroup>

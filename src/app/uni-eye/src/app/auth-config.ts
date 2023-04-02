@@ -6,7 +6,7 @@ import {
   IPublicClientApplication,
   PublicClientApplication, InteractionType
 } from '@azure/msal-browser';
-import {MsalGuardConfiguration} from '@azure/msal-angular';
+import {MsalGuardConfiguration, MsalInterceptorConfiguration, ProtectedResourceScopes} from '@azure/msal-angular';
 
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication(msalConfig);
@@ -16,6 +16,20 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
   return {
     interactionType: InteractionType.Redirect,
     authRequest: loginRequest
+  };
+}
+
+export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
+  const protectedResourceMap = new Map<string, Array<string | ProtectedResourceScopes> | null>();
+
+  protectedResourceMap.set(
+    "https://localhost:44384/*",
+    ["api://b01cf529-2bb7-4f61-937f-ab5e45b74c7c/test-scope"]
+  );
+
+  return {
+    interactionType: InteractionType.Popup,
+    protectedResourceMap,
   };
 }
 
@@ -42,5 +56,5 @@ const msalConfig: Configuration = {
 }
 
 const loginRequest = {
-  scopes: ["api://b01cf529-2bb7-4f61-937f-ab5e45b74c7c/UniEye.Access"]
+  scopes: []
 };

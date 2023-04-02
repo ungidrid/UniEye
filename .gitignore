@@ -451,3 +451,4 @@ FodyWeavers.xsd
 /src/api/UniEye.Modules.Study.Infrastructure/bin/Debug/net7.0/UniEye.Modules.Study.Core.pdb
 /src/api/UniEye.Modules.Study.Infrastructure/bin/Debug/net7.0/UniEye.Modules.Study.Core.dll
 /src/api/UniEye.Modules.Study.Infrastructure/obj/Debug/net7.0/refint/UniEye.Modules.Study.Infrastructure.dll
+/src/app/.idea
